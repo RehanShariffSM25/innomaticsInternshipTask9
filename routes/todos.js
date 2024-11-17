@@ -8,10 +8,7 @@ router.post('/', async (req, res, next) => {
     if (!title) return res.status(400).json({ error: "Title is required" });
 
     try {
-        const todo = new Todo({
-            title,
-            description
-        });
+        const todo = new Todo({ title, description });
         const savedTodo = await todo.save();
         res.status(201).json(savedTodo);
     } catch (err) {
